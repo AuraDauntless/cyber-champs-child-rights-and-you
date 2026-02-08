@@ -1,7 +1,7 @@
 import bg1 from '../assets/level1/images/bg1.png';
 import bg2 from '../assets/level1/images/bg2-1.png';
-import bg3 from '../assets/level1/images/bg 3 scribbles.png';
-import villain from '../assets/level1/images/level 1 villain.png';
+import bg3 from '../assets/level1/images/bg3_scribbles.png';
+import villain from '../assets/level1/images/level1_villain.png';
 
 export const level1 = {
     id: 1,

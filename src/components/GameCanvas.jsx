@@ -53,7 +53,10 @@ const GameCanvas = ({ level, isPaused, onLevelComplete, lives, onGameOver, onSco
 
         // Reset game state for new level
         gameRef.current.player = new Player({
-            imageArray: Object.values(import.meta.glob('../assets/player/run_f*.png', { eager: true, as: 'url' })),
+            imageArray: (() => {
+                const glob = import.meta.glob('../assets/player/run_f*.png', { eager: true, as: 'url' });
+                return Object.keys(glob).sort().map(key => glob[key]);
+            })(),
             x: 100,
             y: canvas.height - 400,
             width: 100,

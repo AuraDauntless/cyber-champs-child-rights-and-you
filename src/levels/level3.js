@@ -1,5 +1,5 @@
-import bg1 from '../assets/level3/images/Project (20260114104737).png';
-import bg2 from '../assets/level3/images/Project (20260114104746).png';
+import bg1 from '../assets/level3/images/digital_fortress_bg1.png';
+import bg2 from '../assets/level3/images/digital_fortress_bg2.png';
 import bg3 from '../assets/level3/images/eyes.png';
 import villain from '../assets/level3/images/villian.png';
 

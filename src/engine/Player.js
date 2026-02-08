@@ -1,5 +1,7 @@
 import Sprite from './Sprite';
 
+import stillImageSrc from '../assets/player/stand_still.png';
+
 export default class Player extends Sprite {
     constructor(options) {
         super(options);
@@ -13,7 +15,7 @@ export default class Player extends Sprite {
 
         // Load still image
         this.stillImage = new Image();
-        this.stillImage.src = '/src/assets/player/stand_still.png';
+        this.stillImage.src = stillImageSrc;
         this.stillImageLoaded = false;
         this.stillImage.onload = () => {
             this.stillImageLoaded = true;

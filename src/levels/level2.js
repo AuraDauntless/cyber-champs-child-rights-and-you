@@ -1,6 +1,6 @@
 import bg1 from '../assets/level2/images/water.png';
 import bg2 from '../assets/level2/images/trees.png';
-import bg3 from '../assets/level2/images/Project (20260111045559).png';
+import bg3 from '../assets/level2/images/data_lake_bg.png';
 import villain from '../assets/antagonists/phishing.png';
 
 export const level2 = {

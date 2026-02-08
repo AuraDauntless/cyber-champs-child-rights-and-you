@@ -11,7 +11,7 @@ import f4 from '../assets/friends/friend_f4.png';
 import f5 from '../assets/friends/friend_f5.png';
 
 // Villains for background
-import v1 from '../assets/level1/images/level 1 villain.png';
+import v1 from '../assets/level1/images/level1_villain.png';
 import v2 from '../assets/antagonists/phishing.png';
 import v3 from '../assets/level3/images/villian.png';
 import v4 from '../assets/level4/images/villain.png';
