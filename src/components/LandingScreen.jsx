@@ -17,23 +17,78 @@ import v3 from '../assets/level3/images/villian.png';
 import v4 from '../assets/level4/images/villain.png';
 import v5 from '../assets/level5/images/gaming_villain.png';
 
+import { level1 } from '../levels/level1';
+import { level2 } from '../levels/level2';
+import { level3 } from '../levels/level3';
+import { level4 } from '../levels/level4';
+import { level5 } from '../levels/level5';
+import standStill from '../assets/player/stand_still.png';
+
 const LandingScreen = ({ onFinishLoading }) => {
     const [progress, setProgress] = useState(0);
     const [phase, setPhase] = useState('LOADING'); // LOADING, INTRO
 
+
+
     useEffect(() => {
         if (phase === 'LOADING') {
-            const interval = setInterval(() => {
-                setProgress(prev => {
-                    if (prev >= 100) {
-                        clearInterval(interval);
-                        setTimeout(() => setPhase('INTRO'), 800);
-                        return 100;
-                    }
-                    return prev + 1;
+            const loadAssets = async () => {
+                // 1. Gather all asset URLs
+                const levels = [level1, level2, level3, level4, level5];
+
+                // Level Backgrounds & Antagonists
+                const levelAssets = levels.flatMap(level => {
+                    const bgs = level.backgrounds.map(bg => bg.src);
+                    const villain = level.antagonist.src;
+                    return [...bgs, villain];
                 });
-            }, 30);
-            return () => clearInterval(interval);
+
+                // Player Animation Frames
+                const playerGlob = import.meta.glob('../assets/player/run_f*.png', { eager: true, as: 'url' });
+                const playerFrames = Object.values(playerGlob);
+
+                // Static Assets (already imported at top, but let's ensure they are cached by the browser)
+                const staticAssets = [
+                    cryLogo, heroGirl, homeBg, standStill,
+                    f1, f2, f3, f4, f5,
+                    v1, v2, v3, v4, v5
+                ];
+
+                const allAssets = [...new Set([...levelAssets, ...playerFrames, ...staticAssets])];
+                const totalAssets = allAssets.length;
+                let loadedCount = 0;
+
+                const updateProgress = () => {
+                    loadedCount++;
+                    const percent = Math.min(Math.round((loadedCount / totalAssets) * 100), 100);
+                    setProgress(percent);
+                };
+
+                const imagePromises = allAssets.map(src => {
+                    return new Promise((resolve) => {
+                        const img = new Image();
+                        img.src = src;
+                        img.onload = () => {
+                            updateProgress();
+                            resolve();
+                        };
+                        img.onerror = () => {
+                            console.warn(`Failed to preload asset: ${src}`);
+                            // Still resolve to not block the game
+                            updateProgress();
+                            resolve();
+                        };
+                    });
+                });
+
+                await Promise.all(imagePromises);
+
+                // Ensure 100% is shown for a moment
+                setProgress(100);
+                setTimeout(() => setPhase('INTRO'), 800);
+            };
+
+            loadAssets();
         }
     }, [phase]);
 
