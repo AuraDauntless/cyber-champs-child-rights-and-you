@@ -1,15 +1,20 @@
+import bg1 from '../assets/level1/images/bg1.png';
+import bg2 from '../assets/level1/images/bg2-1.png';
+import bg3 from '../assets/level1/images/bg 3 scribbles.png';
+import villain from '../assets/level1/images/level 1 villain.png';
+
 export const level1 = {
     id: 1,
     name: "The Scribble Fields",
     threat: "Cyberbullying",
     speed: 12,
     backgrounds: [
-        { src: '/src/assets/level1/images/bg1.png', speedModifier: 0.5 },
-        { src: '/src/assets/level1/images/bg2-1.png', speedModifier: 0.8 },
-        { src: '/src/assets/level1/images/bg 3 scribbles.png', speedModifier: 1.0 }
+        { src: bg1, speedModifier: 0.5 },
+        { src: bg2, speedModifier: 0.8 },
+        { src: bg3, speedModifier: 1.0 }
     ],
     antagonist: {
-        src: '/src/assets/level1/images/level 1 villain.png',
+        src: villain,
         frameCount: 1,
         scale: 0.25
     },

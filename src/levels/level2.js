@@ -1,15 +1,20 @@
+import bg1 from '../assets/level2/images/water.png';
+import bg2 from '../assets/level2/images/trees.png';
+import bg3 from '../assets/level2/images/Project (20260111045559).png';
+import villain from '../assets/antagonists/phishing.png';
+
 export const level2 = {
     id: 2,
     name: "The Data Lake",
     threat: "Phishing",
     speed: 15,
     backgrounds: [
-        { src: '/src/assets/level2/images/water.png', speedModifier: 0.5 },
-        { src: '/src/assets/level2/images/trees.png', speedModifier: 0.8 },
-        { src: '/src/assets/level2/images/Project (20260111045559).png', speedModifier: 1.0 }
+        { src: bg1, speedModifier: 0.5 },
+        { src: bg2, speedModifier: 0.8 },
+        { src: bg3, speedModifier: 1.0 }
     ],
     antagonist: {
-        src: '/src/assets/antagonists/phishing.png',
+        src: villain,
         frameCount: 1,
         scale: 0.25
     },

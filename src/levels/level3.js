@@ -1,15 +1,20 @@
+import bg1 from '../assets/level3/images/Project (20260114104737).png';
+import bg2 from '../assets/level3/images/Project (20260114104746).png';
+import bg3 from '../assets/level3/images/eyes.png';
+import villain from '../assets/level3/images/villian.png';
+
 export const level3 = {
     id: 3,
     name: "The Digital Fortress",
     threat: "Virus",
     speed: 18,
     backgrounds: [
-        { src: '/src/assets/level3/images/Project (20260114104737).png', speedModifier: 0.4 },
-        { src: '/src/assets/level3/images/Project (20260114104746).png', speedModifier: 0.7 },
-        { src: '/src/assets/level3/images/eyes.png', speedModifier: 1.0 }
+        { src: bg1, speedModifier: 0.4 },
+        { src: bg2, speedModifier: 0.7 },
+        { src: bg3, speedModifier: 1.0 }
     ],
     antagonist: {
-        src: '/src/assets/level3/images/villian.png',
+        src: villain,
         frameCount: 1,
         scale: 0.35
     },

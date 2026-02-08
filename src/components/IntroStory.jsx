@@ -1,15 +1,25 @@
 import React, { useState, useEffect } from 'react';
 
+import frame8 from '../assets/frames/Frame 8.png';
+import frame9 from '../assets/frames/Frame 9.png';
+import frame10 from '../assets/frames/Frame 10.png';
+import frame11 from '../assets/frames/Frame 11.png';
+import frame12 from '../assets/frames/Frame 12.png';
+import frame13 from '../assets/frames/Frame 13.png';
+import frame14 from '../assets/frames/Frame 14.png';
+import frame15 from '../assets/frames/Frame 15.png';
+import frame16 from '../assets/frames/Frame 16.png';
+
 const frames = [
-    '/src/assets/frames/Frame 8.png',
-    '/src/assets/frames/Frame 9.png',
-    '/src/assets/frames/Frame 10.png',
-    '/src/assets/frames/Frame 11.png',
-    '/src/assets/frames/Frame 12.png',
-    '/src/assets/frames/Frame 13.png',
-    '/src/assets/frames/Frame 14.png',
-    '/src/assets/frames/Frame 15.png',
-    '/src/assets/frames/Frame 16.png',
+    frame8,
+    frame9,
+    frame10,
+    frame11,
+    frame12,
+    frame13,
+    frame14,
+    frame15,
+    frame16,
 ];
 
 const IntroStory = ({ onComplete }) => {

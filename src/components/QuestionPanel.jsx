@@ -90,6 +90,14 @@ const QuestionPanel = ({ question, onAnswer, currentQuestionIndex, totalQuestion
         }
     };
 
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const config = getLevelConfig(levelIdx);
 
     return (
@@ -131,18 +139,18 @@ const QuestionPanel = ({ question, onAnswer, currentQuestionIndex, totalQuestion
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
-                padding: '40px 100px',
+                padding: isMobile ? '20px 40px' : '40px 100px',
                 boxSizing: 'border-box',
                 animation: 'fadeIn 0.5s ease-out'
             }}>
                 {/* Progress Indicator */}
                 <div style={{
                     position: 'absolute',
-                    top: '50px',
-                    right: '80px',
+                    top: isMobile ? '20px' : '50px',
+                    right: isMobile ? '40px' : '80px',
                     color: config.accentColor,
                     fontWeight: '900',
-                    fontSize: '1.8rem',
+                    fontSize: isMobile ? '1.2rem' : '1.8rem',
                     textShadow: '0 0 10px rgba(0,0,0,0.5)'
                 }}>
                     QUESTION {currentQuestionIndex} / {totalQuestions}
@@ -150,8 +158,9 @@ const QuestionPanel = ({ question, onAnswer, currentQuestionIndex, totalQuestion
 
                 <div style={{ maxWidth: '1000px', width: '100%', textAlign: 'center' }}>
                     <h2 style={{
-                        fontSize: '3.2rem',
-                        marginBottom: '60px',
+                        fontSize: isMobile ? '1.8rem' : '3.2rem',
+                        marginBottom: isMobile ? '20px' : '60px',
+                        marginTop: isMobile ? '40px' : '0',
                         fontWeight: '900',
                         lineHeight: '1.2',
                         color: config.textColor,
@@ -162,9 +171,11 @@ const QuestionPanel = ({ question, onAnswer, currentQuestionIndex, totalQuestion
 
                     <div style={{
                         display: 'grid',
-                        gridTemplateColumns: '1fr 1fr',
-                        gap: '30px',
-                        width: '100%'
+                        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+                        gap: isMobile ? '15px' : '30px',
+                        width: '100%',
+                        maxHeight: isMobile ? '60vh' : 'auto',
+                        overflowY: isMobile ? 'auto' : 'visible'
                     }}>
                         {question.options.map((option, index) => {
                             const isSelected = selectedIndex === index;
@@ -197,8 +208,8 @@ const QuestionPanel = ({ question, onAnswer, currentQuestionIndex, totalQuestion
                                     onClick={() => handleOptionClick(index)}
                                     disabled={isLocked}
                                     style={{
-                                        padding: '30px 40px',
-                                        fontSize: '1.4rem',
+                                        padding: isMobile ? '15px 20px' : '30px 40px',
+                                        fontSize: isMobile ? '1rem' : '1.4rem',
                                         backgroundColor: bgColor,
                                         border: `3px solid ${borderColor}`,
                                         borderRadius: '60px',
@@ -209,7 +220,7 @@ const QuestionPanel = ({ question, onAnswer, currentQuestionIndex, totalQuestion
                                         textAlign: 'left',
                                         display: 'flex',
                                         alignItems: 'center',
-                                        gap: '20px',
+                                        gap: isMobile ? '10px' : '20px',
                                         boxShadow: (isSelected || (showResult && isCorrect)) ? '0 0 20px rgba(0,0,0,0.3)' : config.glow ? `0 0 15px ${config.accentColor}, 0 6px 15px rgba(0,0,0,0.3)` : '0 8px 15px rgba(0,0,0,0.2)',
                                         width: '100%',
                                         outline: 'none',
@@ -230,14 +241,14 @@ const QuestionPanel = ({ question, onAnswer, currentQuestionIndex, totalQuestion
                                     }}
                                 >
                                     <span style={{
-                                        width: '50px',
-                                        height: '50px',
+                                        width: isMobile ? '30px' : '50px',
+                                        height: isMobile ? '30px' : '50px',
                                         borderRadius: '50%',
                                         backgroundColor: showResult ? (isCorrect ? '#2e7d32' : isSelected ? '#b71c1c' : '#ccc') : config.accentColor,
                                         display: 'flex',
                                         justifyContent: 'center',
                                         alignItems: 'center',
-                                        fontSize: '1.3rem',
+                                        fontSize: isMobile ? '1rem' : '1.3rem',
                                         color: 'white',
                                         flexShrink: 0,
                                         fontWeight: '900',
