@@ -215,12 +215,12 @@ const LandingScreen = ({ onFinishLoading }) => {
                         alignItems: 'center'
                     }}>
                         <p style={{ fontSize: '1.4rem', marginBottom: '18px', fontWeight: '500', lineHeight: '1.4', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
-                            From <strong style={{ color: accentYellow }}>Captain Hack</strong> to the <strong style={{ color: accentYellow }}>Phish-King</strong>, they want your data! Do you have the skills to outsmart them and protect your digital world?
+                            <strong style={{ color: accentYellow }}>CRY – Child Rights and You</strong> – works to keep every child safe and happy.
+                            Come along with <strong style={{ color: accentYellow }}>Priya</strong> on a cyber safety adventure!
                         </p>
                         <p style={{ fontSize: '1.2rem', marginBottom: '25px', color: 'rgba(255,255,255,0.95)', fontWeight: '400', textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>
-                            CRY (Child Rights and You) is on a mission to keep every Indian child safe online.
+                            Children, parents, and caring adults — learn, play, and be a <strong style={{ color: accentYellow }}>Cyber Smart Hero</strong> together
                         </p>
-                        <h3 style={{ fontSize: '1.8rem', fontWeight: '800', marginBottom: '30px', color: 'white' }}>Are you ready to become a Champion?</h3>
                         <button
                             onClick={onFinishLoading}
                             style={{
