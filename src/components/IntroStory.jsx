@@ -10,6 +10,8 @@ import frame14 from '../assets/frames/Frame 14.png';
 import frame15 from '../assets/frames/Frame 15.png';
 import frame16 from '../assets/frames/Frame 16.png';
 
+import cryLogo from '../assets/Child_Rights_and_You_(CRY)_Organization_logo.png';
+
 const frames = [
     frame8,
     frame9,
@@ -71,7 +73,8 @@ const IntroStory = ({ onComplete }) => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 transition: 'opacity 0.5s ease-in-out',
-                opacity: isFading ? 0 : 1
+                opacity: isFading ? 0 : 1,
+                position: 'relative'
             }}>
                 <img
                     src={frames[currentFrame]}
@@ -82,6 +85,27 @@ const IntroStory = ({ onComplete }) => {
                         objectFit: 'contain'
                     }}
                 />
+
+                {/* Logo Overlay for Final Slide */}
+                {currentFrame === frames.length - 1 && (
+                    <div style={{
+                        position: 'absolute',
+                        top: '10%',
+                        right: '10%',
+                        zIndex: 10,
+                        animation: 'fadeIn 1s ease-in'
+                    }}>
+                        <img
+                            src={cryLogo}
+                            alt="CRY Logo"
+                            style={{
+                                height: '120px',
+                                objectFit: 'contain',
+                                filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.3))'
+                            }}
+                        />
+                    </div>
+                )}
             </div>
 
             {/* Click Indicator */}

@@ -67,6 +67,7 @@ const LevelSuccess = ({ levelIdx, stars, score, onNext, onRetry, onExit }) => {
                     villainName: "Shadow Tower",
                     frame: frameL5,
                     accentColor: '#00e5ff',
+                    textColor: '#00838f', // Darker cyan for visibility on white
                     filter: 'none'
                 };
             default:
@@ -119,7 +120,7 @@ const LevelSuccess = ({ levelIdx, stars, score, onNext, onRetry, onExit }) => {
             }}>
                 <div style={{ marginBottom: '10px' }}>
                     <h2 style={{ fontSize: '2.5rem', margin: 0, color: '#333', fontWeight: '900' }}>{data.levelNum}</h2>
-                    <h1 style={{ fontSize: '3.5rem', margin: 0, color: data.accentColor, fontWeight: '900', letterSpacing: '2px' }}>COMPLETED!!</h1>
+                    <h1 style={{ fontSize: '3.5rem', margin: 0, color: data.textColor || data.accentColor, fontWeight: '900', letterSpacing: '2px' }}>COMPLETED!!</h1>
                 </div>
 
                 {/* Stars */}

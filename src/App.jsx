@@ -6,6 +6,7 @@ import IntroStory from './components/IntroStory';
 import QuestionPanel from './components/QuestionPanel';
 import HUD from './components/HUD';
 import LevelSuccess from './components/LevelSuccess';
+import LevelIntro from './components/LevelIntro';
 import { generateSafetyReport } from './utils/pdfGenerator';
 import cryLogo from './assets/Child_Rights_and_You_(CRY)_Organization_logo.png';
 import { level1 } from './levels/level1';
@@ -21,7 +22,7 @@ const levels = [level1, level2, level3, level4, level5];
 const SHEET_URL = "https://script.google.com/macros/s/AKfycbz1oK5mByUcmvvvlp7qTzvsm0q8PRHfOQyJJcqgAD5G4bDYmBv6a1oNxVKThwdXbSAezg/exec";
 
 function App() {
-  const [gameState, setGameState] = useState('LANDING'); // LANDING, START, STORY, PLAYING, QUIZ, GAMEOVER, VICTORY, LEVEL_FAIL
+  const [gameState, setGameState] = useState('LANDING'); // LANDING, START, STORY, LEVEL_INTRO, PLAYING, QUIZ, GAMEOVER, VICTORY, LEVEL_FAIL
   const [currentLevelIdx, setCurrentLevelIdx] = useState(0);
   const [lives, setLives] = useState(3);
   const [score, setScore] = useState(0);
@@ -126,7 +127,7 @@ function App() {
   const handleLevelSuccessNext = () => {
     if (currentLevelIdx < levels.length - 1) {
       setCurrentLevelIdx(prev => prev + 1);
-      setGameState('PLAYING');
+      setGameState('LEVEL_INTRO');
     } else {
       setGameState('VICTORY');
       // Submit Finish Data
@@ -140,6 +141,10 @@ function App() {
         });
       }
     }
+  };
+
+  const handleLevelStart = () => {
+    setGameState('PLAYING');
   };
 
   const handleGameOver = () => {
@@ -191,7 +196,7 @@ function App() {
   };
 
   const handleRestart = () => {
-    setGameState('START');
+    setGameState('LANDING');
     setQuestionHistory([]);
     setHasShared(false);
   };
@@ -243,7 +248,9 @@ function App() {
       )}
       {gameState === 'LANDING' && <LandingScreen onFinishLoading={() => setGameState('START')} />}
       {gameState === 'START' && <StartScreen onStart={handleStart} />}
-      {gameState === 'STORY' && <IntroStory onComplete={() => setGameState('PLAYING')} />}
+
+      {gameState === 'STORY' && <IntroStory onComplete={() => setGameState('LEVEL_INTRO')} />}
+      {gameState === 'LEVEL_INTRO' && <LevelIntro levelIdx={currentLevelIdx} onStartLevel={handleLevelStart} />}
 
       {(gameState === 'PLAYING' || gameState === 'QUIZ') && (
         <>
@@ -374,15 +381,19 @@ function App() {
           </div>
           <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center', maxWidth: '800px' }}>
             <button onClick={handleShare} style={{ padding: '18px 40px', fontSize: '1.3rem', cursor: 'pointer', borderRadius: '50px', border: 'none', fontWeight: 'bold', backgroundColor: '#0288d1', color: '#fff', display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <span>SHARE ACHIEVEMENT</span>
+              <span>SHARE THIS GAME- READY LINK</span>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.66 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" /></svg>
             </button>
             <button onClick={handleDownloadReport} style={{ padding: '18px 40px', fontSize: '1.3rem', cursor: 'pointer', borderRadius: '50px', border: '2px solid #fff', fontWeight: 'bold', backgroundColor: 'transparent', color: '#fff' }}>
-              DOWNLOAD CERTIFICATE
+              DOWNLOAD PERFORMANCE CARD
             </button>
             <button onClick={handleRestart} style={{ padding: '18px 40px', fontSize: '1.3rem', cursor: 'pointer', borderRadius: '50px', border: 'none', fontWeight: 'bold', backgroundColor: '#8CB63D', color: '#fff' }}>
               PLAY AGAIN
             </button>
+          </div>
+          <div style={{ marginTop: '40px', opacity: 0.8, textAlign: 'center' }}>
+            <p style={{ margin: '5px 0' }}>Remember: Use Technology responsibly and stay safe!</p>
+            <p style={{ margin: '5px 0', fontSize: '0.9rem' }}>© CRY - Child Rights and You</p>
           </div>
         </div>
       )}

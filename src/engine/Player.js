@@ -1,6 +1,6 @@
 import Sprite from './Sprite';
 
-import stillImageSrc from '../assets/player/stand_still.png';
+import stillImageSrc from '../assets/player/run_f1.png';
 
 export default class Player extends Sprite {
     constructor(options) {

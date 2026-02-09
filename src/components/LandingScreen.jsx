@@ -10,19 +10,11 @@ import f3 from '../assets/friends/friend_f3.png';
 import f4 from '../assets/friends/friend_f4.png';
 import f5 from '../assets/friends/friend_f5.png';
 
-// Villains for background
-import v1 from '../assets/level1/images/level1_villain.png';
-import v2 from '../assets/antagonists/phishing.png';
-import v3 from '../assets/level3/images/villian.png';
-import v4 from '../assets/level4/images/villain.png';
-import v5 from '../assets/level5/images/gaming_villain.png';
-
 import { level1 } from '../levels/level1';
 import { level2 } from '../levels/level2';
 import { level3 } from '../levels/level3';
 import { level4 } from '../levels/level4';
 import { level5 } from '../levels/level5';
-import standStill from '../assets/player/stand_still.png';
 
 const LandingScreen = ({ onFinishLoading }) => {
     const [progress, setProgress] = useState(0);
@@ -49,9 +41,8 @@ const LandingScreen = ({ onFinishLoading }) => {
 
                 // Static Assets (already imported at top, but let's ensure they are cached by the browser)
                 const staticAssets = [
-                    cryLogo, heroGirl, homeBg, standStill,
-                    f1, f2, f3, f4, f5,
-                    v1, v2, v3, v4, v5
+                    cryLogo, heroGirl, homeBg,
+                    f1, f2, f3, f4, f5
                 ];
 
                 const allAssets = [...new Set([...levelAssets, ...playerFrames, ...staticAssets])];
@@ -112,7 +103,7 @@ const LandingScreen = ({ onFinishLoading }) => {
             overflow: 'hidden',
             color: 'white'
         }}>
-            {/* Background with blurred villains */}
+            {/* Background with blurred friends */}
             <div style={{
                 position: 'absolute',
                 top: 0,
@@ -123,11 +114,11 @@ const LandingScreen = ({ onFinishLoading }) => {
                 overflow: 'hidden',
                 filter: 'blur(15px) brightness(0.5) opacity(0.7)'
             }}>
-                <img src={v1} style={{ position: 'absolute', top: '10%', left: '5%', height: '400px' }} alt="" />
-                <img src={v2} style={{ position: 'absolute', top: '20%', right: '10%', height: '350px' }} alt="" />
-                <img src={v3} style={{ position: 'absolute', bottom: '15%', left: '20%', height: '450px' }} alt="" />
-                <img src={v4} style={{ position: 'absolute', bottom: '10%', right: '25%', height: '400px' }} alt="" />
-                <img src={v5} style={{ position: 'absolute', top: '40%', left: '45%', height: '380px' }} alt="" />
+                <img src={f1} style={{ position: 'absolute', top: '10%', left: '5%', height: '400px' }} alt="" />
+                <img src={f2} style={{ position: 'absolute', top: '20%', right: '10%', height: '350px' }} alt="" />
+                <img src={f3} style={{ position: 'absolute', bottom: '15%', left: '20%', height: '450px' }} alt="" />
+                <img src={f4} style={{ position: 'absolute', bottom: '10%', right: '25%', height: '400px' }} alt="" />
+                <img src={f5} style={{ position: 'absolute', top: '40%', left: '45%', height: '380px' }} alt="" />
                 {/* Overlay scribbles if we had them, or just a dark tint */}
                 <div style={{
                     position: 'absolute',
@@ -140,13 +131,13 @@ const LandingScreen = ({ onFinishLoading }) => {
             </div>
 
             {/* Logo */}
-            <div style={{ marginTop: '40px', zIndex: 10 }}>
-                <img src={cryLogo} alt="CRY Logo" style={{ height: '110px', objectFit: 'contain' }} />
+            <div style={{ marginTop: '20px', zIndex: 10 }}>
+                <img src={cryLogo} alt="CRY Logo" style={{ height: '90px', objectFit: 'contain' }} />
             </div>
 
             {/* Main Title Area */}
             <div style={{
-                marginTop: '40px',
+                marginTop: '10px',
                 textAlign: 'center',
                 zIndex: 10,
                 display: 'flex',
@@ -154,7 +145,7 @@ const LandingScreen = ({ onFinishLoading }) => {
                 lineHeight: '0.85'
             }}>
                 <h1 style={{
-                    fontSize: '7.5rem',
+                    fontSize: '6rem',
                     color: accentYellow,
                     margin: 0,
                     fontWeight: '900',
@@ -163,7 +154,7 @@ const LandingScreen = ({ onFinishLoading }) => {
                     textShadow: '4px 4px 15px rgba(0,0,0,0.5)'
                 }}>Cyber</h1>
                 <h1 style={{
-                    fontSize: '7.5rem',
+                    fontSize: '6rem',
                     color: accentYellow,
                     margin: 0,
                     fontWeight: '900',
@@ -175,13 +166,13 @@ const LandingScreen = ({ onFinishLoading }) => {
 
             {/* Content Area */}
             <div style={{
-                marginTop: '30px',
+                marginTop: '20px',
                 width: '80%',
                 maxWidth: '700px',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                zIndex: 20,
+                zIndex: 30,
                 minHeight: '150px'
             }}>
                 {phase === 'LOADING' ? (
@@ -214,7 +205,7 @@ const LandingScreen = ({ onFinishLoading }) => {
                         flexDirection: 'column',
                         alignItems: 'center'
                     }}>
-                        <p style={{ fontSize: '1.4rem', marginBottom: '18px', fontWeight: '500', lineHeight: '1.4', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                        <p style={{ fontSize: '1.4rem', marginBottom: '15px', fontWeight: '500', lineHeight: '1.4', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                             <strong style={{ color: accentYellow }}>CRY – Child Rights and You</strong> – works to keep every child safe and happy.
                             Come along with <strong style={{ color: accentYellow }}>Priya</strong> on a cyber safety adventure!
                         </p>
@@ -225,7 +216,7 @@ const LandingScreen = ({ onFinishLoading }) => {
                             onClick={onFinishLoading}
                             style={{
                                 padding: '16px 60px',
-                                backgroundColor: '#8CB63D',
+                                backgroundColor: '#FF9900',
                                 color: 'white',
                                 border: 'none',
                                 borderRadius: '40px',
@@ -233,20 +224,20 @@ const LandingScreen = ({ onFinishLoading }) => {
                                 fontWeight: 'bold',
                                 cursor: 'pointer',
                                 transition: 'all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-                                boxShadow: '0 8px 0 #6B8E2D, 0 10px 25px rgba(0,0,0,0.4)',
+                                boxShadow: '0 8px 0 #cc7a00, 0 10px 25px rgba(0,0,0,0.4)',
                                 outline: 'none'
                             }}
                             onMouseEnter={(e) => {
                                 e.target.style.transform = 'scale(1.05) translateY(-2px)';
-                                e.target.style.boxShadow = '0 10px 0 #6B8E2D, 0 12px 30px rgba(0,0,0,0.5)';
+                                e.target.style.boxShadow = '0 10px 0 #cc7a00, 0 12px 30px rgba(0,0,0,0.5)';
                             }}
                             onMouseLeave={(e) => {
                                 e.target.style.transform = 'scale(1) translateY(0)';
-                                e.target.style.boxShadow = '0 8px 0 #6B8E2D, 0 10px 25px rgba(0,0,0,0.4)';
+                                e.target.style.boxShadow = '0 8px 0 #cc7a00, 0 10px 25px rgba(0,0,0,0.4)';
                             }}
                             onMouseDown={(e) => {
                                 e.target.style.transform = 'scale(0.98) translateY(2px)';
-                                e.target.style.boxShadow = '0 2px 0 #6B8E2D, 0 4px 10px rgba(0,0,0,0.2)';
+                                e.target.style.boxShadow = '0 2px 0 #cc7a00, 0 4px 10px rgba(0,0,0,0.2)';
                             }}
                         >
                             LET'S GO!
@@ -270,8 +261,8 @@ const LandingScreen = ({ onFinishLoading }) => {
             {/* Five Friends - Right */}
             <div style={{
                 position: 'absolute',
-                bottom: '50px',
-                right: '40px',
+                bottom: '20px',
+                right: '20px',
                 zIndex: 20,
                 display: 'flex',
                 alignItems: 'flex-end',
@@ -279,11 +270,11 @@ const LandingScreen = ({ onFinishLoading }) => {
                 animation: 'slideInRight 1.2s cubic-bezier(0.16, 1, 0.3, 1)',
                 filter: 'drop-shadow(2px 2px 10px rgba(0,0,0,0.3))'
             }}>
-                <img src={f1} alt="Friend 1" style={{ height: '180px', objectFit: 'contain' }} />
-                <img src={f2} alt="Friend 2" style={{ height: '190px', objectFit: 'contain' }} />
-                <img src={f3} alt="Friend 3" style={{ height: '175px', objectFit: 'contain' }} />
-                <img src={f4} alt="Friend 4" style={{ height: '210px', objectFit: 'contain' }} />
-                <img src={f5} alt="Friend 5" style={{ height: '200px', objectFit: 'contain' }} />
+                <img src={f1} alt="Friend 1" style={{ height: '150px', objectFit: 'contain' }} />
+                <img src={f2} alt="Friend 2" style={{ height: '160px', objectFit: 'contain' }} />
+                <img src={f3} alt="Friend 3" style={{ height: '145px', objectFit: 'contain' }} />
+                <img src={f4} alt="Friend 4" style={{ height: '180px', objectFit: 'contain' }} />
+                <img src={f5} alt="Friend 5" style={{ height: '170px', objectFit: 'contain' }} />
             </div>
 
             {/* Wavy Ground Layer */}

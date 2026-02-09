@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import cryLogo from '../assets/Child_Rights_and_You_(CRY)_Organization_logo.png';
-import villainImg from '../assets/level3/images/villian.png';
+import priyaImg from '../assets/girl.png';
 
 const StartScreen = ({ onStart }) => {
     const [formData, setFormData] = useState({
@@ -24,7 +24,7 @@ const StartScreen = ({ onStart }) => {
 
     const backgroundRed = '#a52b2b';
     const cardBorderGold = '#d4af37';
-    const buttonGreen = '#8cb63d';
+    const buttonYellow = '#FF9900';
     const ochreCircle = '#d4a017';
 
     return (
@@ -185,18 +185,25 @@ const StartScreen = ({ onStart }) => {
                         style={{
                             marginTop: '40px',
                             padding: '12px 80px',
-                            backgroundColor: buttonGreen,
+                            backgroundColor: buttonYellow,
                             color: 'white',
                             border: 'none',
                             borderRadius: '40px',
                             fontSize: '2rem',
                             fontWeight: '900',
                             cursor: 'pointer',
-                            transition: 'transform 0.1s',
+                            transition: 'all 0.1s',
+                            boxShadow: '0 6px 0 #cc7a00',
                             outline: 'none'
                         }}
-                        onMouseDown={(e) => e.target.style.transform = 'scale(0.95)'}
-                        onMouseUp={(e) => e.target.style.transform = 'scale(1)'}
+                        onMouseDown={(e) => {
+                            e.target.style.transform = 'scale(0.95)';
+                            e.target.style.boxShadow = '0 2px 0 #cc7a00';
+                        }}
+                        onMouseUp={(e) => {
+                            e.target.style.transform = 'scale(1)';
+                            e.target.style.boxShadow = '0 6px 0 #cc7a00';
+                        }}
                     >
                         Next
                     </button>
@@ -225,16 +232,17 @@ const StartScreen = ({ onStart }) => {
                         zIndex: 1
                     }} />
 
-                    {/* Villain Monster */}
+                    {/* Priya Image */}
                     <img
-                        src={villainImg}
-                        alt="Villain"
+                        src={priyaImg}
+                        alt="Priya"
                         style={{
                             position: 'relative',
-                            height: '80%',
+                            height: '90%',
                             objectFit: 'contain',
                             zIndex: 2,
-                            marginRight: '-50px',
+                            marginLeft: '-20px',
+                            marginBottom: '-20px',
                             filter: 'drop-shadow(10px 10px 30px rgba(0,0,0,0.2))'
                         }}
                     />
@@ -255,7 +263,7 @@ const StartScreen = ({ onStart }) => {
                     -moz-appearance: textfield;
                 }
             `}</style>
-        </div>
+        </div >
     );
 };
 
