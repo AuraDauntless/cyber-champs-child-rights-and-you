@@ -22,11 +22,11 @@ const LevelIntro = ({ levelIdx, onStartLevel }) => {
 
     // Theme colors/names mapping
     const themes = [
-        { title: "Cyber Bullying", color: "#ffd806", desc: "Stand up for your friends online!" },
-        { title: "Phishing Attacks", color: "#1CB7B8", desc: "Don't click on suspicious links!" },
-        { title: "Malware & Viruses", color: "#F16723", desc: "Protect your device from bugs!" },
-        { title: "Privacy Protection", color: "#6B2F67", desc: "Keep your personal info safe!" },
-        { title: "Hacking & Safety", color: "#E4296B", desc: "Protect your accounts and data!" }
+        { title: "The Gateway Guard", color: "#ffd806", desc: "Account Hacking & Safe Browsing" },
+        { title: "Phisher", color: "#1CB7B8", desc: "Identity Theft & Phishing" },
+        { title: "The Shadow Bully", color: "#F16723", desc: "Cyberbullying & Reporting" },
+        { title: "The Fake Friend", color: "#6B2F67", desc: "Cyber Grooming & Social Risks" },
+        { title: "The Final Arena", color: "#E4296B", desc: "Online Game Risks & Mastery" }
     ];
 
     const currentTheme = themes[levelIdx] || { title: level.name, color: "#fff", desc: "Get ready!" };

@@ -34,7 +34,7 @@ const LevelSuccess = ({ levelIdx, stars, score, onNext, onRetry, onExit }) => {
                     levelNum: "Level II",
                     friendName: "Rohan",
                     friendImg: rohanImg,
-                    villainName: "Phish-King",
+                    villainName: "The Phish Master",
                     frame: frameL2,
                     accentColor: '#1CB7B8', // CRY Blue
                     filter: 'none'
@@ -44,7 +44,7 @@ const LevelSuccess = ({ levelIdx, stars, score, onNext, onRetry, onExit }) => {
                     levelNum: "Level III",
                     friendName: "Mitali",
                     friendImg: mitaliImg,
-                    villainName: "The Virus Master",
+                    villainName: "Shadow Bully",
                     frame: frameL3,
                     accentColor: '#F16723', // CRY Orange
                     filter: 'none'
@@ -54,7 +54,7 @@ const LevelSuccess = ({ levelIdx, stars, score, onNext, onRetry, onExit }) => {
                     levelNum: "Level IV",
                     friendName: "Aliah",
                     friendImg: aliahImg,
-                    villainName: "Privacy Breach",
+                    villainName: "The Deceiver",
                     frame: frameL4,
                     accentColor: '#6B2F67', // CRY Purple
                     filter: 'hue-rotate(90deg) saturate(1.5)'
@@ -64,7 +64,7 @@ const LevelSuccess = ({ levelIdx, stars, score, onNext, onRetry, onExit }) => {
                     levelNum: "Level V",
                     friendName: "Kaaju",
                     friendImg: kaajuImg,
-                    villainName: "Shadow Tower",
+                    villainName: "Master Lag",
                     frame: frameL5,
                     accentColor: '#E4296B', // CRY Pink
                     textColor: '#E4296B',

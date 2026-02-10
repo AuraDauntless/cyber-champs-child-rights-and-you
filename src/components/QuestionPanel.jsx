@@ -166,7 +166,7 @@ const QuestionPanel = ({ question, onAnswer, currentQuestionIndex, totalQuestion
                         color: config.textColor,
                         textShadow: levelIdx >= 2 ? '3px 3px 8px rgba(0,0,0,0.8)' : '1px 1px 2px rgba(255,255,255,0.8)'
                     }}>
-                        {question.question}
+                        {question.scenario || question.question}
                     </h2>
 
                     <div style={{

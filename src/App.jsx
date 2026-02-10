@@ -7,6 +7,7 @@ import QuestionPanel from './components/QuestionPanel';
 import HUD from './components/HUD';
 import LevelSuccess from './components/LevelSuccess';
 import LevelIntro from './components/LevelIntro';
+import SecurityGuru from './components/SecurityGuru';
 import { generateSafetyReport } from './utils/pdfGenerator';
 import cryLogo from './assets/Child_Rights_and_You_(CRY)_Organization_logo.png';
 import { level1 } from './levels/level1';
@@ -14,7 +15,7 @@ import { level2 } from './levels/level2';
 import { level3 } from './levels/level3';
 import { level4 } from './levels/level4';
 import { level5 } from './levels/level5';
-import { questions as questionsData } from './data/questions';
+import { surakshaLevels } from './data/surakshaQuestions';
 
 const levels = [level1, level2, level3, level4, level5];
 
@@ -80,9 +81,9 @@ function App() {
   };
 
   const handleLevelFinished = useCallback(() => {
-    const levelKey = `level${currentLevelIdx + 1}`;
-    setQuestionQueue([...questionsData[levelKey]]);
-    setGameState('QUIZ');
+    const questions = surakshaLevels[currentLevelIdx].questions;
+    setQuestionQueue([...questions]);
+    setGameState('GURU_TIP'); // New state for Security Guru
     setCorrectCount(0);
   }, [currentLevelIdx]);
 
@@ -92,12 +93,11 @@ function App() {
 
     // Add to history
     setQuestionHistory(prev => [...prev, {
-      question: currentQ.question,
-      userAnswer: currentQ.options[isCorrect ? currentQ.correctIndex : (currentQ.correctIndex + 1) % currentQ.options.length], // This is a bit simplified, but accurate if we knew choice index
-      // Improvement: Pass the actual choice index to handleAnswer
+      question: currentQ.scenario,
+      userAnswer: currentQ.options[isCorrect ? currentQ.correctIndex : (currentQ.correctIndex + 1) % currentQ.options.length],
       isCorrect: isCorrect,
       correctAnswer: currentQ.options[currentQ.correctIndex],
-      level: level.name
+      level: surakshaLevels[currentLevelIdx].title
     }]);
 
     if (isCorrect) {
@@ -270,6 +270,13 @@ function App() {
             onScoreUpdate={setScore}
           />
         </>
+      )}
+
+      {gameState === 'GURU_TIP' && (
+        <SecurityGuru
+          levelData={surakshaLevels[currentLevelIdx]}
+          onStartBossBattle={() => setGameState('QUIZ')}
+        />
       )}
 
       {gameState === 'QUIZ' && questionQueue.length > 0 && (
