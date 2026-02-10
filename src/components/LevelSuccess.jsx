@@ -119,7 +119,6 @@ const LevelSuccess = ({ levelIdx, stars, score, onNext, onRetry, onExit }) => {
                 padding: '40px'
             }}>
                 <div style={{ marginBottom: '10px' }}>
-                    <h2 style={{ fontSize: '2.5rem', margin: 0, color: '#333', fontWeight: '900' }}>{data.levelNum}</h2>
                     <h1 style={{ fontSize: '3.5rem', margin: 0, color: data.textColor || data.accentColor, fontWeight: '900', letterSpacing: '2px' }}>COMPLETED!!</h1>
                 </div>
 

@@ -254,12 +254,13 @@ function App() {
 
       {(gameState === 'PLAYING' || gameState === 'QUIZ') && (
         <>
-          <HUD
+          {/* HUD hidden as per user request */}
+          {/* <HUD
             score={score}
             lives={lives}
             levelName={level.name}
             threat={level.threat}
-          />
+          /> */}
           <GameCanvas
             key={`level-${currentLevelIdx}-${levelCycle}`}
             level={level}

@@ -67,15 +67,6 @@ const LevelIntro = ({ levelIdx, onStartLevel }) => {
                 transform: animate ? 'translateY(0)' : 'translateY(20px)',
                 transition: 'all 0.8s ease-out 0.2s'
             }}>
-                <h2 style={{
-                    fontSize: '2.5rem',
-                    margin: '0 0 10px 0',
-                    color: '#ccc',
-                    letterSpacing: '3px',
-                    textTransform: 'uppercase'
-                }}>
-                    Level {levelIdx + 1}
-                </h2>
 
                 <h1 style={{
                     fontSize: '5rem',

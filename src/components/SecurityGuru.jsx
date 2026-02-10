@@ -92,7 +92,7 @@ const SecurityGuru = ({ levelData, onStartBossBattle }) => {
                         SECURITY GURU'S FACT FLASH
                     </h3>
                     <h2 style={{ color: '#fff', fontSize: '2.5rem', fontWeight: '900' }}>
-                        Level {id}: {title}
+                        {title}
                     </h2>
                 </div>
 
