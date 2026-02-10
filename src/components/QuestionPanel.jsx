@@ -37,47 +37,47 @@ const QuestionPanel = ({ question, onAnswer, currentQuestionIndex, totalQuestion
                 return {
                     frame: frameYellow,
                     textColor: '#4e342e',
-                    accentColor: '#FF9900',
+                    accentColor: '#ffd806', // CRY Yellow
                     buttonBg: 'rgba(255, 255, 255, 0.9)',
-                    buttonBorder: '#ffe082',
+                    buttonBorder: '#ffd806',
                     filter: 'none'
                 };
             case 1: // Level 2
                 return {
                     frame: frameBlue,
                     textColor: '#0d47a1',
-                    accentColor: '#0288d1',
+                    accentColor: '#1CB7B8', // CRY Blue
                     buttonBg: 'rgba(255, 255, 255, 0.9)',
-                    buttonBorder: '#90caf9',
+                    buttonBorder: '#1CB7B8',
                     filter: 'none'
                 };
             case 2: // Level 3
                 return {
                     frame: frameRed,
                     textColor: '#ffffff',
-                    accentColor: '#f44336',
+                    accentColor: '#F16723', // CRY Orange
                     buttonBg: 'rgba(0, 0, 0, 0.7)',
-                    buttonBorder: '#ef5350',
+                    buttonBorder: '#F16723',
                     filter: 'none'
                 };
             case 3: // Level 4
                 return {
-                    frame: frameBlue, // Tinting the blue frame to green
+                    frame: frameBlue,
                     textColor: '#ffffff',
-                    accentColor: '#4caf50',
-                    buttonBg: 'rgba(0, 40, 0, 0.75)',
-                    buttonBorder: '#81c784',
-                    filter: 'hue-rotate(90deg) saturate(1.5)'
+                    accentColor: '#6B2F67', // CRY Purple
+                    buttonBg: 'rgba(0, 0, 0, 0.75)',
+                    buttonBorder: '#6B2F67',
+                    filter: 'hue-rotate(240deg) saturate(1.5)' // Adjusted to purple
                 };
             case 4: // Level 5
                 return {
                     frame: frameDark,
-                    textColor: '#00e5ff',
-                    accentColor: '#00e5ff',
+                    textColor: '#E4296B', // CRY Pink
+                    accentColor: '#E4296B',
                     buttonBg: 'rgba(0, 0, 0, 0.85)',
-                    buttonBorder: '#00e5ff',
+                    buttonBorder: '#E4296B',
                     filter: 'none',
-                    glow: '0 0 15px rgba(0, 229, 255, 0.4)'
+                    glow: '0 0 15px rgba(228, 41, 107, 0.4)'
                 };
             default:
                 return {

@@ -26,7 +26,7 @@ const LevelSuccess = ({ levelIdx, stars, score, onNext, onRetry, onExit }) => {
                     friendImg: anujImg,
                     villainName: "Captain Hack",
                     frame: frameL1,
-                    accentColor: '#FF9900',
+                    accentColor: '#ffd806', // CRY Primary Yellow
                     filter: 'none'
                 };
             case 1:
@@ -36,7 +36,7 @@ const LevelSuccess = ({ levelIdx, stars, score, onNext, onRetry, onExit }) => {
                     friendImg: rohanImg,
                     villainName: "Phish-King",
                     frame: frameL2,
-                    accentColor: '#0288d1',
+                    accentColor: '#1CB7B8', // CRY Blue
                     filter: 'none'
                 };
             case 2:
@@ -46,7 +46,7 @@ const LevelSuccess = ({ levelIdx, stars, score, onNext, onRetry, onExit }) => {
                     friendImg: mitaliImg,
                     villainName: "The Virus Master",
                     frame: frameL3,
-                    accentColor: '#f44336',
+                    accentColor: '#F16723', // CRY Orange
                     filter: 'none'
                 };
             case 3:
@@ -56,7 +56,7 @@ const LevelSuccess = ({ levelIdx, stars, score, onNext, onRetry, onExit }) => {
                     friendImg: aliahImg,
                     villainName: "Privacy Breach",
                     frame: frameL4,
-                    accentColor: '#4caf50',
+                    accentColor: '#6B2F67', // CRY Purple
                     filter: 'hue-rotate(90deg) saturate(1.5)'
                 };
             case 4:
@@ -66,8 +66,8 @@ const LevelSuccess = ({ levelIdx, stars, score, onNext, onRetry, onExit }) => {
                     friendImg: kaajuImg,
                     villainName: "Shadow Tower",
                     frame: frameL5,
-                    accentColor: '#00e5ff',
-                    textColor: '#00838f', // Darker cyan for visibility on white
+                    accentColor: '#E4296B', // CRY Pink
+                    textColor: '#E4296B',
                     filter: 'none'
                 };
             default:
@@ -153,24 +153,12 @@ const LevelSuccess = ({ levelIdx, stars, score, onNext, onRetry, onExit }) => {
                 </p>
 
                 {/* Characters */}
-                <div style={{
-                    position: 'absolute',
-                    bottom: '50px',
-                    left: '50px',
-                    zIndex: 5,
-                    animation: 'slideInLeft 0.8s ease-out'
-                }}>
-                    <img src={priyankaImg} alt="Priya" style={{ height: '500px', objectFit: 'contain', filter: 'drop-shadow(10px 10px 20px rgba(0,0,0,0.2))' }} />
+                <div className="char-container left-char">
+                    <img src={priyankaImg} alt="Priya" className="char-img" />
                 </div>
 
-                <div style={{
-                    position: 'absolute',
-                    bottom: '50px',
-                    right: '50px',
-                    zIndex: 5,
-                    animation: 'slideInRight 0.8s ease-out'
-                }}>
-                    <img src={data.friendImg} alt={data.friendName} style={{ height: '500px', objectFit: 'contain', filter: 'drop-shadow(-10px 10px 20px rgba(0,0,0,0.2))' }} />
+                <div className="char-container right-char">
+                    <img src={data.friendImg} alt={data.friendName} className="char-img" />
                 </div>
 
                 {/* Buttons Row */}
@@ -187,19 +175,20 @@ const LevelSuccess = ({ levelIdx, stars, score, onNext, onRetry, onExit }) => {
                             width: '80px',
                             height: '80px',
                             borderRadius: '50%',
-                            backgroundColor: '#FF9900',
+                            backgroundColor: '#ffd806', // CRY Yellow
                             border: 'none',
                             cursor: 'pointer',
                             display: 'flex',
                             justifyContent: 'center',
                             alignItems: 'center',
                             boxShadow: '0 4px 10px rgba(0,0,0,0.2)',
-                            transition: 'transform 0.2s'
+                            transition: 'transform 0.2s',
+                            color: 'black'
                         }}
                         onMouseEnter={(e) => e.target.style.transform = 'scale(1.1)'}
                         onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
                     >
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M17.65 6.35c-1.63-1.63-3.94-2.57-6.48-2.31-3.67.37-6.69 3.35-7.1 7.02C3.52 15.91 7.27 20 12 20c3.19 0 5.93-1.87 7.21-4.56.32-.67-.16-1.44-.9-1.44-.44 0-.83.24-1.02.64-1 2.1-3.21 3.51-5.7 3.27-2.61-.25-4.71-2.39-4.9-5-.23-3.15 2.27-5.75 5.31-5.75 1.52 0 2.89.63 3.88 1.63l-1.88 1.88c-.31.32-.09.87.35.87H20V4c0-.45-.54-.67-.85-.35l-1.5 1.7z" />
                         </svg>
                     </button>
@@ -209,14 +198,14 @@ const LevelSuccess = ({ levelIdx, stars, score, onNext, onRetry, onExit }) => {
                         onClick={onNext}
                         style={{
                             padding: '20px 80px',
-                            backgroundColor: '#8CB63D',
-                            color: 'white',
+                            backgroundColor: '#ffd806', // CRY Yellow
+                            color: 'black', // Black text for contrast
                             border: 'none',
                             borderRadius: '50px',
                             fontSize: '2.5rem',
                             fontWeight: '900',
                             cursor: 'pointer',
-                            boxShadow: '0 8px 0 #6B8E2D, 0 10px 20px rgba(0,0,0,0.3)',
+                            boxShadow: '0 8px 0 #ccaa00, 0 10px 20px rgba(0,0,0,0.3)',
                             transition: 'all 0.1s'
                         }}
                         onMouseDown={(e) => e.target.style.transform = 'translateY(4px)'}
@@ -233,6 +222,38 @@ const LevelSuccess = ({ levelIdx, stars, score, onNext, onRetry, onExit }) => {
                 @keyframes flowerPop {
                     from { transform: scale(0) rotate(0deg); opacity: 0; }
                     to { transform: scale(1) rotate(45deg); opacity: 1; }
+                }
+
+                .char-container {
+                    position: absolute;
+                    bottom: 50px;
+                    z-index: 5;
+                    transition: all 0.5s ease;
+                }
+                .left-char { left: 50px; animation: slideInLeft 0.8s ease-out; }
+                .right-char { right: 50px; animation: slideInRight 0.8s ease-out; }
+                .char-img {
+                    height: 500px;
+                    object-fit: contain;
+                    filter: drop-shadow(10px 10px 20px rgba(0,0,0,0.2));
+                }
+
+                @media (max-width: 768px) {
+                    .char-container {
+                        bottom: 120px; /* Push up above buttons */
+                        opacity: 0.3; /* Fade out to avoid text clash or make smaller */
+                    }
+                    .char-img {
+                        height: 250px; /* Smaller on mobile */
+                    }
+                    /* Ensure text is readable */
+                    h1 { font-size: 2.5rem !important; }
+                    h2 { font-size: 1.8rem !important; }
+                    p { font-size: 1.2rem !important; margin-bottom: 20px !important; }
+                    
+                    /* Adjust layout to stack */
+                    .left-char { left: -50px; opacity: 0.6; } /* Move to edges */
+                    .right-char { right: -50px; opacity: 0.6; }
                 }
             `}</style>
         </div>

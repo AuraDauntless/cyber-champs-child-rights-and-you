@@ -22,10 +22,10 @@ const StartScreen = ({ onStart }) => {
         }
     };
 
-    const backgroundRed = '#a52b2b';
-    const cardBorderGold = '#d4af37';
-    const buttonYellow = '#FF9900';
-    const ochreCircle = '#d4a017';
+    const backgroundRed = '#E4296B'; // CRY Pink (Secondary)
+    const cardBorderGold = '#ffd806'; // CRY Yellow (Primary)
+    const buttonYellow = '#ffd806';
+    const ochreCircle = '#ffd806';
 
     return (
         <div style={{
@@ -186,7 +186,7 @@ const StartScreen = ({ onStart }) => {
                             marginTop: '40px',
                             padding: '12px 80px',
                             backgroundColor: buttonYellow,
-                            color: 'white',
+                            color: 'black', // Contrast for yellow
                             border: 'none',
                             borderRadius: '40px',
                             fontSize: '2rem',

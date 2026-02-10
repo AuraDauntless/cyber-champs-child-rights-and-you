@@ -85,7 +85,7 @@ const LandingScreen = ({ onFinishLoading }) => {
 
     // Define colors
     const deepPurple = '#3b1d5f';
-    const accentYellow = '#FF9900';
+    const accentYellow = '#ffd806';
 
     return (
         <div style={{
@@ -216,7 +216,7 @@ const LandingScreen = ({ onFinishLoading }) => {
                             onClick={onFinishLoading}
                             style={{
                                 padding: '16px 60px',
-                                backgroundColor: '#FF9900',
+                                backgroundColor: '#ffd806', // CRY Yellow
                                 color: 'white',
                                 border: 'none',
                                 borderRadius: '40px',

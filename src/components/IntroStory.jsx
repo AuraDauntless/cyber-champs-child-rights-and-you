@@ -87,25 +87,7 @@ const IntroStory = ({ onComplete }) => {
                 />
 
                 {/* Logo Overlay for Final Slide */}
-                {currentFrame === frames.length - 1 && (
-                    <div style={{
-                        position: 'absolute',
-                        top: '10%',
-                        right: '10%',
-                        zIndex: 10,
-                        animation: 'fadeIn 1s ease-in'
-                    }}>
-                        <img
-                            src={cryLogo}
-                            alt="CRY Logo"
-                            style={{
-                                height: '120px',
-                                objectFit: 'contain',
-                                filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.3))'
-                            }}
-                        />
-                    </div>
-                )}
+                {/* Logo Overlay Removed to prevent duplication */}
             </div>
 
             {/* Click Indicator */}
@@ -135,9 +117,9 @@ const IntroStory = ({ onComplete }) => {
                     position: 'absolute',
                     top: '30px',
                     right: '30px',
-                    backgroundColor: 'rgba(255,255,255,0.1)',
+                    backgroundColor: '#ffd806', // CRY Yellow
                     backdropFilter: 'blur(5px)',
-                    color: 'white',
+                    color: 'black',
                     border: '1px solid rgba(255,255,255,0.3)',
                     padding: '8px 24px',
                     borderRadius: '20px',
